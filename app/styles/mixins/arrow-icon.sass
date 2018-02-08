@@ -1,0 +1,38 @@
+// $width == $height
+=arrow-icon($width: 24px, $line-thickness: 2px, $direction: false, $color: #111, $active-direction: false, $active-color: false)
+	display: flex
+	align-items: center
+
+	width: $width
+	height: $width
+	&.is-active,
+	&:hover
+		span
+			border-color: $active-color
+			transform: rotate($active-direction)
+
+	span
+		display: block
+
+		width: $width - ($width / 3.415)
+		height: $width - ($width / 3.415)
+		
+		border-color: transparent
+		border-top: $line-thickness solid $color
+		border-left: $line-thickness solid $color
+
+		transition: all .5s ease-in-out
+
+		cursor: pointer
+
+		@if $direction == left
+			transform: rotate(-45deg)
+
+		@else if $direction == right
+			transform: rotate(135deg)
+
+		@else if $direction == up 
+			transform: rotate(45deg)
+
+		@else if $direction == down
+			transform: rotate(-135deg)

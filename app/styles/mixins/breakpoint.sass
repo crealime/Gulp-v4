@@ -1,0 +1,24 @@
+//MIN-WIDTH
+=media-min($breakpoint) 
+	$value: map-get($breakpoints, $breakpoint)
+
+	@if map-has-key($breakpoints, $breakpoint)
+		@media only screen and (min-width: $value)
+			@content
+
+	@else 
+		@media only screen and (min-width: $breakpoint)
+			@content
+
+
+//MAX-WIDTH
+=media-max($breakpoint) 
+	$value: map-get($breakpoints, $breakpoint)
+
+	@if map-has-key($breakpoints, $breakpoint)
+		@media only screen and (max-width: $value)
+			@content
+
+	@else 
+		@media only screen and (max-width: $breakpoint)
+			@content
